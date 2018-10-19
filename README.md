@@ -1,2 +1,1 @@
-# ruby-ruby-ruby-ruby
-Not Kaiser Chiefs
+# Ruby-Ruby-Ruby-Ruby
