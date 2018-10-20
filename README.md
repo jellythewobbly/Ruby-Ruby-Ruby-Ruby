@@ -10,9 +10,12 @@ puts 'hello world' # hello world
 
 #### String Interpolation
 
+Double quotation marks(" ") has to be used for string interpolation
+
 ```rb
 name = 'Sammy'
 puts "Hello, my name is #{name}." # Hello, my name is Sammy.
+puts "2 + 2 is #{2 + 2}" # 2 + 2 is 4
 ```
 
 #### Concatenation
