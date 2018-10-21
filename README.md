@@ -1,5 +1,36 @@
 # Ruby-Ruby-Ruby-Ruby
 
+## MADE WITH ♥ BY JAY
+
+### Data Types in Ruby
+
+1. Strings
+2. Numbers
+3. Booleans
+4. Arrays
+5. Hashes
+6. Symbols
+
+### type checking (.class)
+
+```rb
+'hello'.class #=> String
+'123.456'.class #=> String
+
+987.class #=> Integer
+3.14159.class #=> Float
+
+true.class #=> TrueClass
+false.class #=> FalseClass
+
+[1, 2, 3, 4, 5].class #=> Array
+
+{'name' => 'peter', 'age' => 69, :gender => 'male'}.class #=> Hash
+
+:id.class #=> Symbol
+:gender.class #=> Symbol
+```
+
 ## String
 
 ### puts
@@ -8,6 +39,7 @@
 puts 'hello world' #=> hello world
 puts 2 + 2 #=> 4
 puts true || false #=> true
+puts 321 > 123 #=> true
 ```
 
 ### string interpolation (preferred over concatenation)
@@ -300,4 +332,20 @@ puts Float === num #=> true
 str = '123.456'
 num = Float(str)
 puts num #=> 123.456 (float)
+```
+
+## Number
+
+### modulo operator (remainder)
+
+```rb
+puts 21 % 2 #=> 1 (odd)
+puts 10 % 2 #=> 0 (even)
+
+# alternative:
+puts 21.odd? #=> true
+puts 10.even? #=> true
+
+puts 45.even? #=> false
+puts 12.odd? #=> false
 ```
