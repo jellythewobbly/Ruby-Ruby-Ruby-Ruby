@@ -10,7 +10,7 @@ puts 2 + 2 #=> 4
 puts true || false #=> true
 ```
 
-### string interpolation
+### string interpolation (preferred over concatenation)
 
 Double quotation marks(" ") has to be used for string interpolation
 
@@ -18,6 +18,12 @@ Double quotation marks(" ") has to be used for string interpolation
 name = 'Sammy'
 puts "Hello, my name is #{name}." #=> Hello, my name is Sammy.
 puts "2 + 2 is #{2 + 2}" #=> 2 + 2 is 4
+
+first_name = 'Peter'
+last_name = 'Griffin'
+full_name = "#{first_name} #{last_name}"
+
+puts "Hello, I am #{full_name}." #=> Hello, I am Peter Griffin.
 ```
 
 ### concatenation
@@ -29,24 +35,61 @@ puts str #=> foobar
 
 
 str = 'hello'
-str << 'world'
-puts str #=> helloworld
+str << ' world'
+puts str #=> hello world
+
+str = 'Mac'
+str.concat('Book')
+puts str #=> MacBook
 ```
 
-### uppercase & lowercase methods
+### delete
+
+```rb
+str = 'hello world'
+
+# deletes all occurrences of each letter
+sub_str = str.delete('lo')
+puts sub_str #=> he wrd
+puts str #=> hello world
+
+# use (!) to delete from the original
+str = 'hello world'
+str.delete!('hed')
+puts str #=> llo worl
+```
+
+### repetition
+
+to repeat a string, use (string \* integer)
+
+```rb
+str = 'hello'
+repeated = str * 3
+puts repeated #=> hellohellohello
+```
+
+### uppercase & lowercase (capitalize, upcase, downcase)
 
 ```rb
 str = 'let it never be said'
 puts str.capitalize #=> Let it never be said
 
+str = 'HELLO WORLD!'
+puts str.capitalize #=> Hello world!
+```
+
+```rb
+str = 'let it never be said'
 puts str.upcase #=> LET IT NEVER BE SAID
 
 str = 'THE ROMANCE IS DEAD'
 puts str.downcase #=> the romance is dead
+```
 
+Use a bang method (!) to modify the original
 
-# Using (!) to modify the original
-
+```rb
 str = 'are you serious bro?'
 str.upcase!
 puts str #=> ARE YOU SERIOUS BRO?
@@ -65,6 +108,20 @@ puts str #=> tHIS iS wEIRD
 ```rb
 str = 'hello world'
 puts str.length #=> 11
+```
+
+### count
+
+```rb
+str = 'hello world'
+puts str.count('h') #=> 1
+puts str.count('o') #=> 2
+puts str.count('l') #=> 3
+
+# counts by individual letters and returns the sum
+str = 'hello world'
+puts str.count('lo') #=> 5 (l => 3, o => 2)
+puts str.count('eh') #=> 2 (e => 1, h => 1)
 ```
 
 ### indexing & slicing
@@ -112,7 +169,7 @@ puts str.slice!(11..17) #=> awesome
 puts str #=> we deliver ness
 ```
 
-### index & rindex
+### getting the index (index & rindex)
 
 .index() returns the index of the **FIRST** occurrence of the given substring
 
@@ -145,9 +202,9 @@ str.reverse!
 puts str #=> sliar no ybur
 ```
 
-### sub & gsub
+### substitution (sub & gsub)
 
-.sub(pattern, replacement) for replacing the first occurrence
+.sub(pattern, replacement) for replacing the **first** occurrence
 
 ```rb
 str = 'hello world'
@@ -159,7 +216,7 @@ puts str.sub!('ing', 'ement') #=> excitement
 puts str #=> excitement
 ```
 
-.gsub(pattern, replacement) for replacing all occurrences
+.gsub(pattern, replacement) for replacing **all** occurrences
 
 ```rb
 str = 'are vowels important?'
@@ -206,7 +263,7 @@ puts str #=> hello world!
 puts str.length #=> 12
 ```
 
-### to_i, to_f
+### type conversion (to_i, to_f)
 
 .to_i => to integer
 
