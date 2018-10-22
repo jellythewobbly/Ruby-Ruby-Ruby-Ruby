@@ -63,16 +63,16 @@ puts "Hello, I am #{full_name}." #=> Hello, I am Peter Griffin.
 ```rb
 str = 'foo'
 str += 'bar'
-puts str #=> foobar
+str #=> foobar
 
 
 str = 'hello'
 str << ' world'
-puts str #=> hello world
+str #=> hello world
 
 str = 'Mac'
 str.concat('Book')
-puts str #=> MacBook
+str #=> MacBook
 ```
 
 ### delete
@@ -82,13 +82,13 @@ str = 'hello world'
 
 # deletes all occurrences of each letter
 sub_str = str.delete('lo')
-puts sub_str #=> he wrd
-puts str #=> hello world
+sub_str #=> he wrd
+str #=> hello world
 
 # use (!) to delete from the original
 str = 'hello world'
 str.delete!('hed')
-puts str #=> llo worl
+str #=> llo worl
 ```
 
 ### repetition
@@ -98,25 +98,25 @@ to repeat a string, use (string \* integer)
 ```rb
 str = 'hello'
 repeated = str * 3
-puts repeated #=> hellohellohello
+repeated #=> hellohellohello
 ```
 
 ### uppercase & lowercase (capitalize, upcase, downcase)
 
 ```rb
 str = 'let it never be said'
-puts str.capitalize #=> Let it never be said
+str.capitalize #=> Let it never be said
 
 str = 'HELLO WORLD!'
-puts str.capitalize #=> Hello world!
+str.capitalize #=> Hello world!
 ```
 
 ```rb
 str = 'let it never be said'
-puts str.upcase #=> LET IT NEVER BE SAID
+str.upcase #=> LET IT NEVER BE SAID
 
 str = 'THE ROMANCE IS DEAD'
-puts str.downcase #=> the romance is dead
+str.downcase #=> the romance is dead
 ```
 
 Use a bang method (!) to modify the original
@@ -124,7 +124,7 @@ Use a bang method (!) to modify the original
 ```rb
 str = 'are you serious bro?'
 str.upcase!
-puts str #=> ARE YOU SERIOUS BRO?
+str #=> ARE YOU SERIOUS BRO?
 ```
 
 Bonus: swapcase
@@ -132,28 +132,28 @@ Bonus: swapcase
 ```rb
 str = 'This Is Weird'
 str.swapcase!
-puts str #=> tHIS iS wEIRD
+str #=> tHIS iS wEIRD
 ```
 
 ### length
 
 ```rb
 str = 'hello world'
-puts str.length #=> 11
+str.length #=> 11
 ```
 
 ### count
 
 ```rb
 str = 'hello world'
-puts str.count('h') #=> 1
-puts str.count('o') #=> 2
-puts str.count('l') #=> 3
+str.count('h') #=> 1
+str.count('o') #=> 2
+str.count('l') #=> 3
 
 # counts by individual letters and returns the sum
 str = 'hello world'
-puts str.count('lo') #=> 5 (l => 3, o => 2)
-puts str.count('eh') #=> 2 (e => 1, h => 1)
+str.count('lo') #=> 5 (l => 3, o => 2)
+str.count('eh') #=> 2 (e => 1, h => 1)
 ```
 
 ### indexing & slicing
@@ -167,25 +167,25 @@ Slice by index using (..): [startIndex..endIndex]
 ```rb
 str = 'abcdefghijklmnop'
 
-puts str[0] #=> a
-puts str[0,5] #=> abcde
-puts str[3, 5] #=> defgh
+str[0] #=> a
+str[0,5] #=> abcde
+str[3, 5] #=> defgh
 
-puts str[-1] #=> p
-puts str[-7] #=> j
-puts str[-7, 3] #=> jkl
+str[-1] #=> p
+str[-7] #=> j
+str[-7, 3] #=> jkl
 ```
 
 ```rb
 str = 'hello world'
 
-puts str[1..-1] #=> ello world
+str[1..-1] #=> ello world
 
-puts str[0..4] #=> hello
-puts str[6..10] #=> world
+str[0..4] #=> hello
+str[6..10] #=> world
 
-puts str[-11..-7] #=> hello
-puts str[-5..-1] #=> world
+str[-11..-7] #=> hello
+str[-5..-1] #=> world
 ```
 
 Use an exclamation mark to mutate the original object (bang method)
@@ -194,11 +194,11 @@ Use an exclamation mark to mutate the original object (bang method)
 str = 'we deliver awesomeness'
 
 sub_str = str.slice(3, 4)
-puts sub_str #=> deli
-puts str #=> we deliver awesomeness
+sub_str #=> deli
+str #=> we deliver awesomeness
 
-puts str.slice!(11..17) #=> awesome
-puts str #=> we deliver ness
+str.slice!(11..17) #=> awesome
+str #=> we deliver ness
 ```
 
 ### getting the index (index & rindex)
@@ -207,59 +207,59 @@ puts str #=> we deliver ness
 
 ```rb
 str = 'hello'
-puts str.index('e') #=> 1
-puts str.index('lo') #=> 3
-puts str.index('l') #=> 2
-puts str.index('world') #=> nil
+str.index('e') #=> 1
+str.index('lo') #=> 3
+str.index('l') #=> 2
+str.index('world') #=> nil
 ```
 
 .rindex() returns the index of the **LAST** occurrence of the given
 
 ```rb
 str = 'tomorrow is cancelled'
-puts str.rindex('r') #=> 5
-puts str.rindex('o') #=> 6
-puts str.rindex('ed') #=> 19
+str.rindex('r') #=> 5
+str.rindex('o') #=> 6
+str.rindex('ed') #=> 19
 ```
 
 ### reverse
 
 ```rb
 str = 'foobar'
-puts str.reverse #=> raboof
-puts str #=> foobar
+str.reverse #=> raboof
+str #=> foobar
 
 str = 'ruby on rails'
 str.reverse!
-puts str #=> sliar no ybur
+str #=> sliar no ybur
 ```
 
 ### substitution (sub & gsub)
 
-.sub(pattern, replacement) for replacing the **first** occurrence
+.sub(pattern, replacement) for replacing the **FIRST** occurrence
 
 ```rb
 str = 'hello world'
-puts str.sub('l', '') #=> helo world
-puts str #=> hello world
+str.sub('l', '') #=> helo world
+str #=> hello world
 
 str = 'exciting'
-puts str.sub!('ing', 'ement') #=> excitement
-puts str #=> excitement
+str.sub!('ing', 'ement') #=> excitement
+str #=> excitement
 ```
 
-.gsub(pattern, replacement) for replacing **all** occurrences
+.gsub(pattern, replacement) for replacing **ALL** occurrences
 
 ```rb
 str = 'are vowels important?'
-puts str.gsub(/[aeiou]/, '') #=> r vwls mprtnt?
-puts str #=> are vowels important?
+str.gsub(/[aeiou]/, '') #=> r vwls mprtnt?
+str #=> are vowels important?
 
 str = 'wow nice one'
 str.gsub!('o', '0')
 str.gsub!('i', '1')
 str.gsub!('e', '3')
-puts str #=> w0w n1c3 0n3
+str #=> w0w n1c3 0n3
 ```
 
 ### split
@@ -269,18 +269,18 @@ puts str #=> w0w n1c3 0n3
 ```rb
 sentence = 'have a nice day'
 words = sentence.split(' ')
-# alternatives:
+# alternatives
 # words = sentence.split
 # words = sentence.split()
 
-puts words #=> ["have", "a", "nice", "day"]
-puts sentence #=> have a nice day
+words #=> ["have", "a", "nice", "day"]
+sentence #=> have a nice day
 
 
 
 str = 'hello'
 str_split = str.split('')
-puts str_split #=> ["h", "e", "l", "l", "o"]
+str_split #=> ["h", "e", "l", "l", "o"]
 ```
 
 ### strip
@@ -289,10 +289,10 @@ puts str_split #=> ["h", "e", "l", "l", "o"]
 
 ```rb
 str = '   hello world!   '
-puts str.length #=> 18
+str.length #=> 18
 str.strip!
-puts str #=> hello world!
-puts str.length #=> 12
+str #=> hello world!
+str.length #=> 12
 ```
 
 ### type conversion (to_i, to_f)
@@ -302,20 +302,20 @@ puts str.length #=> 12
 ```rb
 str = '12345'
 num = str.to_i
-puts num #=> 12345 (integer)
+num #=> 12345 (integer)
 
 # type checking using ===
-puts Integer === num #=> true
+Integer === num #=> true
 
 # rounds down for values with decimal points
 str = '123.456'
 num = str.to_i
-puts num #=> 123 (integer)
+num #=> 123 (integer)
 
-# alternative:
+# alternative
 str = '12345'
 num = Integer(str)
-puts num #=> 12345 (integer)
+num #=> 12345 (integer)
 ```
 
 .to_f => to float
@@ -323,29 +323,141 @@ puts num #=> 12345 (integer)
 ```rb
 str = '12345'
 num = str.to_f
-puts num #=> 12345.0 (float)
+num #=> 12345.0 (float)
 
 # type checking using ===
-puts Float === num #=> true
+Float === num #=> true
 
-# alternative:
+# alternative
 str = '123.456'
 num = Float(str)
-puts num #=> 123.456 (float)
+num #=> 123.456 (float)
 ```
 
 ## Number
 
-### modulo operator (remainder)
+### operators (+, -, \*, /, \*\*, %)
 
 ```rb
-puts 21 % 2 #=> 1 (odd)
-puts 10 % 2 #=> 0 (even)
+2 + 2 #=> 4
 
-# alternative:
-puts 21.odd? #=> true
-puts 10.even? #=> true
+10 - 3 #=> 7
 
-puts 45.even? #=> false
-puts 12.odd? #=> false
+4 * 2 #=> 8
+
+10 / 2 #=> 5
+9 / 2 #=> 4 (returns only integer)
+
+9 / 2.to_f #=> 4.5 (either of the values has to be a float)
+9.0 / 2 #=> 4.5
+9 / 2.0 #=> 4.5
+
+# exponent/power operator (**)
+2 ** 3 #=> 8
+3 ** 2 #=> 9
+5 ** 2 #=> 25
+
+# modulo operator (returns the remainder)
+9 % 5 #=> 4
+10 % 5 #=> 0
+11 % 5 #=> 1
+12 % 5 #=> 2
+
+# use (% 2) for odd/even check
+21 % 2 #=> 1 (odd)
+10 % 2 #=> 0 (even)
+33 % 2 #=> 1 (odd)
+32 % 2 #=> 0 (even)
+```
+
+### odd, even (odd?, even?)
+
+```rb
+21.odd? #=> true
+10.even? #=> true
+
+45.even? #=> false
+12.odd? #=> false
+```
+
+### random
+
+rand returns a random float between 0 and 1
+
+```rb
+rand #=> 0.27471334647378365
+```
+
+rand(int) returns an random integer between 0 and int, not including int
+
+```rb
+rand(10) #=> 6
+rand(2) #=> either 1 or 0
+rand(5) #=> either 0, 1, 2, 3, 4
+```
+
+### square root (Math.sqrt)
+
+```rb
+Math.sqrt(25) #=> 5.0
+Math.sqrt(24) #=> 4.898979485566356
+```
+
+## Array
+
+### empty?
+
+```rb
+arr = [1, 2, 3, 4, 5]
+arr.empty? #=> false
+
+other_arr = []
+other_arr.empty? #=> true
+```
+
+### size of array (preferred method)
+
+```rb
+arr = ['a', 'b', 'c', 'd', 'e']
+arr.size #=> 5
+
+# alternatives
+arr.length #=> 5
+arr.count #=> 5
+```
+
+### include?
+
+```rb
+arr = ['a', 'b', 'c', 'd', 'e']
+arr.include?('a') #=> true
+arr.include?(10) #=> false
+arr.include?('hello') #=> false
+```
+
+### index / rindex
+
+.index(search_value) returns the index of the **FIRST** object for which block is true or nil if no match is found
+
+```rb
+arr = ['a', 'b', 'c', 'd', 'e']
+arr.index('c') #=> 2
+arr.index('hello world') #=> nil
+arr.index('e') #=> 4
+```
+
+.rindex(search_value) returns the index of the **LAST** object for which block is true or nil if no match is found
+
+```rb
+arr = ['yes', 'no', 'maybe', 'no', 'yes']
+arr.rindex('yes') #=> 4
+arr.rindex('no') #=> 3
+```
+
+### unique values (uniq)
+
+```rb
+arr = [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 6, 6]
+arr.uniq!
+arr #=> [1, 2, 3, 4, 5, 6]
 ```
