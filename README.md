@@ -415,7 +415,7 @@ other_arr = []
 other_arr.empty? #=> true
 ```
 
-### size of array (preferred method)
+### size of array (preferred)
 
 ```rb
 arr = ['a', 'b', 'c', 'd', 'e']
@@ -467,30 +467,85 @@ arr #=> [1, 2, 3, 4, 5, 6]
 ```rb
 arr = ['hello', 'what', 'is', 'your', 'name']
 arr.reverse!
-arr #=> ['name', 'your', 'is', 'what', 'hello'
+arr #=> ['name', 'your', 'is', 'what', 'hello']
+```
+
+### shuffle
+
+```rb
+arr = [1, 2, 3, 4, 5]
+arr.shuffle!
+arr #=> [3, 5, 2, 4, 1] (results will vary)
+arr.shuffle!
+arr #=> [4, 5, 1, 3, 2] (results will vary)
 ```
 
 ### push
 
+Add an element/elements to the **END** of the array and return the array
+
 ```rb
+# using shovel operator (preferred)
+arr = [1, 2, 3, 4, 5]
+arr << 6 << 7
+arr #=> [1, 2, 3, 4, 5, 6, 7]
+arr << 'hello'
+arr #=> [1, 2, 3, 4, 5, 6, 7, 'hello']
+
+# alternative
 arr = ['a', 'b', 'c', 'd', 'e']
 arr.push('f')
 arr #=> ['a', 'b', 'c', 'd', 'e', 'f']
 
 arr.push('g', 'h')
 arr #=> ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-
-# using shovel operator
-arr = [1, 2, 3, 4, 5]
-arr << 6
-arr << 7
-arr #=> [1, 2, 3, 4, 5, 6, 7]
 ```
 
 ### pop
+
+Remove an element from the **END** of the array and return the element
 
 ```rb
 arr = ['this', 'is', 'the', 'last', 'item']
 arr.pop #=> item
 arr #=> ['this', 'is', 'the', 'last']
+```
+
+.pop(int) will remove int number of elements from the **END** of the array and return an array of the elements
+
+```rb
+arr = ['a', 'b', 'c', 'd', 'e']
+arr.pop(2) #=> ['d', 'e']
+arr #=> ['a', 'b', 'c']
+```
+
+### unshift
+
+Add an element/elements to the **START** of the array and return the array
+
+```rb
+arr = ['c', 'd', 'e']
+arr.unshift('a', 'b')
+arr #=> ['a', 'b', 'c', 'd', 'e']
+
+arr.unshift('what')
+arr #=> ['what', 'a', 'b', 'c', 'd', 'e']
+```
+
+### shift
+
+Remove an element from the **START** of the array and return the element
+
+```rb
+arr = ['first', 'second', 'third', 'fourth']
+arr.shift #=> first
+arr #=> ['second', 'third', 'fourth']
+```
+
+.shift(int) will remove int number of elements from the **START** of the array and return an array of the elements
+
+```rb
+arr = ['first', 'second', 'third', 'fourth']
+arr.shift(3) #=> ['first', 'second', 'third']
+arr #=> ['fourth']
 ```
