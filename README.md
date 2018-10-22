@@ -461,3 +461,36 @@ arr = [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 6, 6]
 arr.uniq!
 arr #=> [1, 2, 3, 4, 5, 6]
 ```
+
+### reverse
+
+```rb
+arr = ['hello', 'what', 'is', 'your', 'name']
+arr.reverse!
+arr #=> ['name', 'your', 'is', 'what', 'hello'
+```
+
+### push
+
+```rb
+arr = ['a', 'b', 'c', 'd', 'e']
+arr.push('f')
+arr #=> ['a', 'b', 'c', 'd', 'e', 'f']
+
+arr.push('g', 'h')
+arr #=> ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+
+# using shovel operator
+arr = [1, 2, 3, 4, 5]
+arr << 6
+arr << 7
+arr #=> [1, 2, 3, 4, 5, 6, 7]
+```
+
+### pop
+
+```rb
+arr = ['this', 'is', 'the', 'last', 'item']
+arr.pop #=> item
+arr #=> ['this', 'is', 'the', 'last']
+```
