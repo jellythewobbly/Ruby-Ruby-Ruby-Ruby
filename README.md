@@ -426,6 +426,41 @@ arr.length #=> 5
 arr.count #=> 5
 ```
 
+### clear
+
+```rb
+arr = ['arrays', 'are', 'so', 'fun']
+arr.clear
+arr #=> []
+arr.empty? #=> true
+```
+
+### fill
+
+```rb
+arr = ['elements', 'in', 'an', 'array']
+arr.fill('magic')
+arr #=> ['magic', 'magic','magic', 'magic']
+
+nil_arr = Array.new(5)
+nil_arr #=> [nil, nil, nil, nil, nil]
+nil_arr.fill('wow')
+nil_arr #=> ['wow', 'wow', 'wow', 'wow', 'wow']
+```
+
+### compact
+
+```rb
+arr = [1, 2, 3]
+arr.length #=> 3
+arr[5] = 'hello'
+arr #=> [1, 2, 3, nil, nil, 'hello']
+arr.length #=> 6
+
+arr.compact!
+arr #=> [1, 2, 3, 'hello']
+```
+
 ### include?
 
 ```rb
@@ -433,6 +468,18 @@ arr = ['a', 'b', 'c', 'd', 'e']
 arr.include?('a') #=> true
 arr.include?(10) #=> false
 arr.include?('hello') #=> false
+```
+
+### join
+
+```rb
+arr = ['a', 'b', 'c', 'd', 'e']
+letters = arr.join
+letters #=> abcde
+
+arr = ['these', 'words', 'form', 'a', 'sentence']
+sentence = arr.join(' ')
+sentence #=> these words form a sentence
 ```
 
 ### index / rindex
@@ -444,6 +491,8 @@ arr = ['a', 'b', 'c', 'd', 'e']
 arr.index('c') #=> 2
 arr.index('hello world') #=> nil
 arr.index('e') #=> 4
+
+arr.index('yes') == nil #=> true
 ```
 
 .rindex(search_value) returns the index of the **LAST** object for which block is true or nil if no match is found
@@ -452,6 +501,64 @@ arr.index('e') #=> 4
 arr = ['yes', 'no', 'maybe', 'no', 'yes']
 arr.rindex('yes') #=> 4
 arr.rindex('no') #=> 3
+```
+
+### first & last
+
+```rb
+arr = ['alex', 'ben', 'charlie', 'david', 'ethan']
+arr.first #=> alex
+arr.first(2) #=> ['alex', 'ben']
+
+arr = ['alex', 'ben', 'charlie', 'david', 'ethan']
+arr.last #=> ethan
+arr.last(3) #=> ['charlie', 'david', 'ethan']
+```
+
+### indexing & slicing
+
+Negative indexes are counted from the end (-1)
+
+Slice by length using a comma (,): [startIndex, length]
+
+Slice by index using (..): [startIndex..endIndex]
+
+```rb
+arr = ['alex', 'ben', 'charlie', 'david', 'ethan']
+arr[0] #=> alex
+arr[-1] #=> ethan
+arr[2] #=> charlie
+
+arr[3, 2] #=> ['david', 'ethan']
+arr[2, 1] #=> ['charlie']
+
+arr[2..4] #=> ['charlie', 'david', 'ethan']
+arr[0..2] #=> ['alex', 'ben', 'charlie']
+
+arr[-3, 2] #=> ['charlie', 'david']
+arr[-3..-1] #=> ['charlie', 'david', 'ethan']
+```
+
+```rb
+arr = ['hello', 'world', 'this', 'is', 'an', 'array']
+sub_arr = arr.slice!(1, 4)
+sub_arr #=> ['world', 'this', 'is', 'an']
+arr #=> ['hello', 'array']
+
+arr = ['alex', 'ben', 'charlie', 'david', 'ethan']
+sub_arr = arr.slice!(2..3)
+sub_arr #=> ['charlie', 'david']
+arr #=> ['alex', 'ben', 'ethan']
+
+arr = ['these', 'are', 'some', 'values', 'in', 'an', 'array']
+sub_arr = arr.slice!(-4, 3)
+sub_arr #=> ['values', 'in', 'an']
+arr #=> ['these', 'are', 'some', 'array']
+
+arr = ['I', 'am', 'getting', 'bored', 'of', 'ruby']
+sub_arr = arr.slice!(-4..-2)
+sub_arr #=> ['getting', 'bored', 'of']
+arr #=> ['I', 'am', 'ruby']
 ```
 
 ### unique values (uniq)
@@ -478,6 +585,25 @@ arr.shuffle!
 arr #=> [3, 5, 2, 4, 1] (results will vary)
 arr.shuffle!
 arr #=> [4, 5, 1, 3, 2] (results will vary)
+```
+
+### concat
+
+```rb
+first_arr = [1, 2, 3]
+second_arr = [4, 5, 6]
+
+first_arr.concat(second_arr)
+first_arr #=> [1, 2, 3, 4, 5, 6]
+second_arr #=> [4, 5, 6]
+
+# alternative
+first_arr = [1, 2, 3]
+second_arr = [4, 5, 6]
+
+first_arr += second_arr
+first_arr #=> [1, 2, 3, 4, 5, 6]
+second_arr #=> [4, 5, 6]
 ```
 
 ### push
@@ -549,3 +675,47 @@ arr = ['first', 'second', 'third', 'fourth']
 arr.shift(3) #=> ['first', 'second', 'third']
 arr #=> ['fourth']
 ```
+
+### insert(index, val...)
+
+```rb
+arr = ['when', 'I', 'was', 'a', 'young', 'boy']
+arr.insert(-3, 'stupid')
+arr #=> ['when', 'I', 'was', 'a', 'stupid', 'young', 'boy']
+
+arr = ['my', 'father', 'took', 'me', 'into', 'the', 'city']
+arr.insert(2, 'what', 'is', 'this')
+arr #=> ['my', 'father', 'what', 'is', 'this', 'took', 'me', 'into', 'the', 'city']
+```
+
+### delete(val)
+
+```rb
+arr = ['a', 'b', 'c', 'd', 'e', 'f']
+arr.delete('c')
+arr #=> ['a', 'b', 'd', 'e', 'f']
+```
+
+### delete_at(index)
+
+```rb
+arr = ['this', 'is', 'a', 'CAT MEOWS', 'strange', 'sentence']
+arr.delete_at(3)
+arr #=> ['this', 'is', 'a', 'strange', 'sentence']
+```
+
+### delete_if{ |item| condition }
+
+```rb
+scores = [50, 20, 33, 70, 83, 89, 48, 100]
+scores.delete_if {|i| i < 50}
+scores #=> [50, 70, 83, 89, 100]
+```
+
+### each
+
+### map
+
+### select
+
+### reduce
