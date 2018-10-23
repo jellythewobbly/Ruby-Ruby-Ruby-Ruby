@@ -156,7 +156,7 @@ str.count('lo') #=> 5 (l => 3, o => 2)
 str.count('eh') #=> 2 (e => 1, h => 1)
 ```
 
-### indexing & slicing
+### string indexing & slicing
 
 Negative indexes are counted from the end (-1)
 
@@ -222,7 +222,7 @@ str.rindex('o') #=> 6
 str.rindex('ed') #=> 19
 ```
 
-### reverse
+### string reverse
 
 ```rb
 str = 'foobar'
@@ -435,6 +435,13 @@ arr #=> []
 arr.empty? #=> true
 ```
 
+### range
+
+```rb
+arr = (0..10).to_a
+arr #=> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
 ### fill
 
 ```rb
@@ -482,6 +489,14 @@ sentence = arr.join(' ')
 sentence #=> these words form a sentence
 ```
 
+### min & max
+
+```rb
+arr = [10, 8, 12, 9, 5, 11, 7, 6]
+arr.min #=> 5
+arr.max #=> 12
+```
+
 ### index / rindex
 
 .index(search_value) returns the index of the **FIRST** object for which block is true or nil if no match is found
@@ -515,7 +530,7 @@ arr.last #=> ethan
 arr.last(3) #=> ['charlie', 'david', 'ethan']
 ```
 
-### indexing & slicing
+### array indexing & slicing
 
 Negative indexes are counted from the end (-1)
 
@@ -569,7 +584,7 @@ arr.uniq!
 arr #=> [1, 2, 3, 4, 5, 6]
 ```
 
-### reverse
+### array reverse
 
 ```rb
 arr = ['hello', 'what', 'is', 'your', 'name']
@@ -712,10 +727,104 @@ scores.delete_if {|i| i < 50}
 scores #=> [50, 70, 83, 89, 100]
 ```
 
-### each
+### sort
 
-### map
+```rb
+arr = ['d', 'a', 'e', 'c', 'b']
+arr.sort!
+arr #=> ['a', 'b', 'c', 'd', 'e']
 
-### select
+arr = [20, 10, 50, 30, 100, 1, 40]
+arr.sort!
+arr #=> [1, 10, 20, 30, 40, 50, 100]
+```
 
-### reduce
+use sort { |a, b| comparison } for implementing a comparison between a and b
+
+```rb
+arr = ['d', 'a', 'e', 'c', 'b']
+arr.sort! { |a, b| b <=> a }
+arr #=> ['e', 'd', 'c', 'b', 'a']
+
+arr = ['alex', 'ben', 'charlie', 'david', 'ethan']
+
+arr.sort! { |a, b| a.length <=> b.length }
+arr #=> ['ben', 'alex', 'david', 'ethan', 'charlie']
+
+arr.sort! { |a, b| b.length <=> a.length }
+arr #=> ['charlie', 'david', 'ethan', 'alex', 'ben']
+```
+
+### sum
+
+```rb
+arr = [1, 2, 3, 4, 5]
+arr.sum #=> 15
+
+# use .sum(initial value) for specifying an initial value
+arr = [10, 10, 10]
+arr.sum(5) #=> 35
+```
+
+### each { |item| code block }
+
+```rb
+str = ''
+arr = [1, 2, 3, 4]
+
+arr.each { |x| str << (x * 2).to_s }
+str #=> '2468'
+```
+
+### each_index { |index| code block }
+
+```rb
+arr = ['a', 'b', 'c', 'd', 'e']
+arr.each_index { |x| puts "Index #{x} is #{arr[x]}" }
+
+# Index 0 is a
+# Index 1 is b
+# Index 2 is c
+# Index 3 is d
+# Index 4 is e
+```
+
+### map { |item| code block }
+
+```rb
+arr = [1, 2, 3, 4, 5]
+new_arr = arr.map { |x| x * 2 }
+new_arr #=> [2, 4, 6, 8, 10]
+
+arr = ['a', 'b', 'c', 'd', 'e']
+arr.map! { |x| "hi#{x}" }
+arr #=> ['hia', 'hib', 'hic', 'hid', 'hie']
+
+arr = [1, 2, 3, 4, 5]
+other_arr = arr.map.with_index { |x, i| x + i }
+other_arr #=> [1, 3, 5, 7, 9]
+```
+
+### select { |item| condition }
+
+```rb
+arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_arr = arr.select { |x| x.even? }
+even_arr #=> [2, 4, 6, 8, 10]
+
+arr = ['here', 'are', 'some', 'words', 'that', 'are', 'inside', 'an', 'array']
+arr.select! { |x| x.length >= 5 }
+arr #=> ['words', 'inside', 'array']
+```
+
+### reduce { |sum, current| code block }
+
+```rb
+arr = [1, 2, 3, 4, 5]
+sum = arr.reduce { |acc, cur| acc + cur }
+sum #=> 15
+
+arr = [10, 20, 30]
+total_plus_seven = arr.reduce(7) { |acc, cur| acc + cur }
+total_plus_seven #=> 67
+```
