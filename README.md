@@ -13,7 +13,7 @@
 
 ### type checking (.class)
 
-```rb
+```ruby
 'hello'.class #=> String
 '123.456'.class #=> String
 
@@ -35,7 +35,7 @@ false.class #=> FalseClass
 
 ### puts
 
-```rb
+```ruby
 puts 'hello world' #=> hello world
 puts 2 + 2 #=> 4
 puts true || false #=> true
@@ -46,7 +46,7 @@ puts 321 > 123 #=> true
 
 Double quotation marks(" ") has to be used for string interpolation
 
-```rb
+```ruby
 name = 'Sammy'
 puts "Hello, my name is #{name}." #=> Hello, my name is Sammy.
 puts "2 + 2 is #{2 + 2}" #=> 2 + 2 is 4
@@ -60,7 +60,7 @@ puts "Hello, I am #{full_name}." #=> Hello, I am Peter Griffin.
 
 ### concatenation
 
-```rb
+```ruby
 str = 'foo'
 str += 'bar'
 str #=> foobar
@@ -77,7 +77,7 @@ str #=> MacBook
 
 ### delete
 
-```rb
+```ruby
 str = 'hello world'
 
 # deletes all occurrences of each letter
@@ -95,7 +95,7 @@ str #=> llo worl
 
 to repeat a string, use (string \* integer)
 
-```rb
+```ruby
 str = 'hello'
 repeated = str * 3
 repeated #=> hellohellohello
@@ -103,7 +103,7 @@ repeated #=> hellohellohello
 
 ### uppercase & lowercase (capitalize, upcase, downcase)
 
-```rb
+```ruby
 str = 'let it never be said'
 str.capitalize #=> Let it never be said
 
@@ -111,7 +111,7 @@ str = 'HELLO WORLD!'
 str.capitalize #=> Hello world!
 ```
 
-```rb
+```ruby
 str = 'let it never be said'
 str.upcase #=> LET IT NEVER BE SAID
 
@@ -121,7 +121,7 @@ str.downcase #=> the romance is dead
 
 Use a bang method (!) to modify the original
 
-```rb
+```ruby
 str = 'are you serious bro?'
 str.upcase!
 str #=> ARE YOU SERIOUS BRO?
@@ -129,7 +129,7 @@ str #=> ARE YOU SERIOUS BRO?
 
 Bonus: swapcase
 
-```rb
+```ruby
 str = 'This Is Weird'
 str.swapcase!
 str #=> tHIS iS wEIRD
@@ -137,14 +137,14 @@ str #=> tHIS iS wEIRD
 
 ### length
 
-```rb
+```ruby
 str = 'hello world'
 str.length #=> 11
 ```
 
 ### count
 
-```rb
+```ruby
 str = 'hello world'
 str.count('h') #=> 1
 str.count('o') #=> 2
@@ -164,7 +164,7 @@ Slice by length using a comma (,): [startIndex, length]
 
 Slice by index using (..): [startIndex..endIndex]
 
-```rb
+```ruby
 str = 'abcdefghijklmnop'
 
 str[0] #=> a
@@ -176,7 +176,7 @@ str[-7] #=> j
 str[-7, 3] #=> jkl
 ```
 
-```rb
+```ruby
 str = 'hello world'
 
 str[1..-1] #=> ello world
@@ -190,7 +190,7 @@ str[-5..-1] #=> world
 
 Use an exclamation mark to mutate the original object (bang method)
 
-```rb
+```ruby
 str = 'we deliver awesomeness'
 
 sub_str = str.slice(3, 4)
@@ -205,7 +205,7 @@ str #=> we deliver ness
 
 .index() returns the index of the **FIRST** occurrence of the given substring
 
-```rb
+```ruby
 str = 'hello'
 str.index('e') #=> 1
 str.index('lo') #=> 3
@@ -215,7 +215,7 @@ str.index('world') #=> nil
 
 .rindex() returns the index of the **LAST** occurrence of the given
 
-```rb
+```ruby
 str = 'tomorrow is cancelled'
 str.rindex('r') #=> 5
 str.rindex('o') #=> 6
@@ -224,7 +224,7 @@ str.rindex('ed') #=> 19
 
 ### string reverse
 
-```rb
+```ruby
 str = 'foobar'
 str.reverse #=> raboof
 str #=> foobar
@@ -238,7 +238,7 @@ str #=> sliar no ybur
 
 .sub(pattern, replacement) for replacing the **FIRST** occurrence
 
-```rb
+```ruby
 str = 'hello world'
 str.sub('l', '') #=> helo world
 str #=> hello world
@@ -250,7 +250,7 @@ str #=> excitement
 
 .gsub(pattern, replacement) for replacing **ALL** occurrences
 
-```rb
+```ruby
 str = 'are vowels important?'
 str.gsub(/[aeiou]/, '') #=> r vwls mprtnt?
 str #=> are vowels important?
@@ -266,7 +266,7 @@ str #=> w0w n1c3 0n3
 
 .split(pattern) splits on whitespace if no arguments are passed
 
-```rb
+```ruby
 sentence = 'have a nice day'
 words = sentence.split(' ')
 # alternatives
@@ -287,7 +287,7 @@ str_split #=> ["h", "e", "l", "l", "o"]
 
 .strip removes whitespace from the start and end
 
-```rb
+```ruby
 str = '   hello world!   '
 str.length #=> 18
 str.strip!
@@ -299,7 +299,7 @@ str.length #=> 12
 
 .to_i => to integer
 
-```rb
+```ruby
 str = '12345'
 num = str.to_i
 num #=> 12345 (integer)
@@ -320,7 +320,7 @@ num #=> 12345 (integer)
 
 .to_f => to float
 
-```rb
+```ruby
 str = '12345'
 num = str.to_f
 num #=> 12345.0 (float)
@@ -338,7 +338,7 @@ num #=> 123.456 (float)
 
 ### operators (+, -, \*, /, \*\*, %)
 
-```rb
+```ruby
 2 + 2 #=> 4
 
 10 - 3 #=> 7
@@ -372,7 +372,7 @@ num #=> 123.456 (float)
 
 ### odd, even (odd?, even?)
 
-```rb
+```ruby
 21.odd? #=> true
 10.even? #=> true
 
@@ -384,13 +384,13 @@ num #=> 123.456 (float)
 
 rand returns a random float between 0 and 1
 
-```rb
+```ruby
 rand #=> 0.27471334647378365
 ```
 
 rand(int) returns an random integer between 0 and int, not including int
 
-```rb
+```ruby
 rand(10) #=> 6
 rand(2) #=> either 1 or 0
 rand(5) #=> either 0, 1, 2, 3, 4
@@ -398,7 +398,7 @@ rand(5) #=> either 0, 1, 2, 3, 4
 
 ### square root (Math.sqrt)
 
-```rb
+```ruby
 Math.sqrt(25) #=> 5.0
 Math.sqrt(24) #=> 4.898979485566356
 ```
@@ -407,7 +407,7 @@ Math.sqrt(24) #=> 4.898979485566356
 
 ### empty?
 
-```rb
+```ruby
 arr = [1, 2, 3, 4, 5]
 arr.empty? #=> false
 
@@ -417,7 +417,7 @@ other_arr.empty? #=> true
 
 ### size of array (preferred)
 
-```rb
+```ruby
 arr = ['a', 'b', 'c', 'd', 'e']
 arr.size #=> 5
 
@@ -428,7 +428,7 @@ arr.count #=> 5
 
 ### clear
 
-```rb
+```ruby
 arr = ['arrays', 'are', 'so', 'fun']
 arr.clear
 arr #=> []
@@ -437,14 +437,14 @@ arr.empty? #=> true
 
 ### range
 
-```rb
+```ruby
 arr = (0..10).to_a
 arr #=> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
 ### fill
 
-```rb
+```ruby
 arr = ['elements', 'in', 'an', 'array']
 arr.fill('magic')
 arr #=> ['magic', 'magic','magic', 'magic']
@@ -457,7 +457,7 @@ nil_arr #=> ['wow', 'wow', 'wow', 'wow', 'wow']
 
 ### compact
 
-```rb
+```ruby
 arr = [1, 2, 3]
 arr.length #=> 3
 arr[5] = 'hello'
@@ -470,7 +470,7 @@ arr #=> [1, 2, 3, 'hello']
 
 ### include?
 
-```rb
+```ruby
 arr = ['a', 'b', 'c', 'd', 'e']
 arr.include?('a') #=> true
 arr.include?(10) #=> false
@@ -479,7 +479,7 @@ arr.include?('hello') #=> false
 
 ### join
 
-```rb
+```ruby
 arr = ['a', 'b', 'c', 'd', 'e']
 letters = arr.join
 letters #=> abcde
@@ -491,7 +491,7 @@ sentence #=> these words form a sentence
 
 ### min & max
 
-```rb
+```ruby
 arr = [10, 8, 12, 9, 5, 11, 7, 6]
 arr.min #=> 5
 arr.max #=> 12
@@ -501,7 +501,7 @@ arr.max #=> 12
 
 .index(search_value) returns the index of the **FIRST** object for which block is true or nil if no match is found
 
-```rb
+```ruby
 arr = ['a', 'b', 'c', 'd', 'e']
 arr.index('c') #=> 2
 arr.index('hello world') #=> nil
@@ -512,7 +512,7 @@ arr.index('yes') == nil #=> true
 
 .rindex(search_value) returns the index of the **LAST** object for which block is true or nil if no match is found
 
-```rb
+```ruby
 arr = ['yes', 'no', 'maybe', 'no', 'yes']
 arr.rindex('yes') #=> 4
 arr.rindex('no') #=> 3
@@ -520,7 +520,7 @@ arr.rindex('no') #=> 3
 
 ### first & last
 
-```rb
+```ruby
 arr = ['alex', 'ben', 'charlie', 'david', 'ethan']
 arr.first #=> alex
 arr.first(2) #=> ['alex', 'ben']
@@ -538,7 +538,7 @@ Slice by length using a comma (,): [startIndex, length]
 
 Slice by index using (..): [startIndex..endIndex]
 
-```rb
+```ruby
 arr = ['alex', 'ben', 'charlie', 'david', 'ethan']
 arr[0] #=> alex
 arr[-1] #=> ethan
@@ -554,7 +554,7 @@ arr[-3, 2] #=> ['charlie', 'david']
 arr[-3..-1] #=> ['charlie', 'david', 'ethan']
 ```
 
-```rb
+```ruby
 arr = ['hello', 'world', 'this', 'is', 'an', 'array']
 sub_arr = arr.slice!(1, 4)
 sub_arr #=> ['world', 'this', 'is', 'an']
@@ -578,7 +578,7 @@ arr #=> ['I', 'am', 'ruby']
 
 ### unique values (uniq)
 
-```rb
+```ruby
 arr = [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5, 6, 6]
 arr.uniq!
 arr #=> [1, 2, 3, 4, 5, 6]
@@ -586,7 +586,7 @@ arr #=> [1, 2, 3, 4, 5, 6]
 
 ### array reverse
 
-```rb
+```ruby
 arr = ['hello', 'what', 'is', 'your', 'name']
 arr.reverse!
 arr #=> ['name', 'your', 'is', 'what', 'hello']
@@ -594,7 +594,7 @@ arr #=> ['name', 'your', 'is', 'what', 'hello']
 
 ### shuffle
 
-```rb
+```ruby
 arr = [1, 2, 3, 4, 5]
 arr.shuffle!
 arr #=> [3, 5, 2, 4, 1] (results will vary)
@@ -604,7 +604,7 @@ arr #=> [4, 5, 1, 3, 2] (results will vary)
 
 ### concat
 
-```rb
+```ruby
 first_arr = [1, 2, 3]
 second_arr = [4, 5, 6]
 
@@ -625,7 +625,7 @@ second_arr #=> [4, 5, 6]
 
 Add an element/elements to the **END** of the array and return the array
 
-```rb
+```ruby
 # using shovel operator (preferred)
 arr = [1, 2, 3, 4, 5]
 arr << 6 << 7
@@ -646,7 +646,7 @@ arr #=> ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
 Remove an element from the **END** of the array and return the element
 
-```rb
+```ruby
 arr = ['this', 'is', 'the', 'last', 'item']
 arr.pop #=> item
 arr #=> ['this', 'is', 'the', 'last']
@@ -654,7 +654,7 @@ arr #=> ['this', 'is', 'the', 'last']
 
 .pop(int) will remove int number of elements from the **END** of the array and return an array of the elements
 
-```rb
+```ruby
 arr = ['a', 'b', 'c', 'd', 'e']
 arr.pop(2) #=> ['d', 'e']
 arr #=> ['a', 'b', 'c']
@@ -664,7 +664,7 @@ arr #=> ['a', 'b', 'c']
 
 Add an element/elements to the **START** of the array and return the array
 
-```rb
+```ruby
 arr = ['c', 'd', 'e']
 arr.unshift('a', 'b')
 arr #=> ['a', 'b', 'c', 'd', 'e']
@@ -677,7 +677,7 @@ arr #=> ['what', 'a', 'b', 'c', 'd', 'e']
 
 Remove an element from the **START** of the array and return the element
 
-```rb
+```ruby
 arr = ['first', 'second', 'third', 'fourth']
 arr.shift #=> first
 arr #=> ['second', 'third', 'fourth']
@@ -685,7 +685,7 @@ arr #=> ['second', 'third', 'fourth']
 
 .shift(int) will remove int number of elements from the **START** of the array and return an array of the elements
 
-```rb
+```ruby
 arr = ['first', 'second', 'third', 'fourth']
 arr.shift(3) #=> ['first', 'second', 'third']
 arr #=> ['fourth']
@@ -693,7 +693,7 @@ arr #=> ['fourth']
 
 ### insert(index, val...)
 
-```rb
+```ruby
 arr = ['when', 'I', 'was', 'a', 'young', 'boy']
 arr.insert(-3, 'stupid')
 arr #=> ['when', 'I', 'was', 'a', 'stupid', 'young', 'boy']
@@ -705,7 +705,7 @@ arr #=> ['my', 'father', 'what', 'is', 'this', 'took', 'me', 'into', 'the', 'cit
 
 ### delete(val)
 
-```rb
+```ruby
 arr = ['a', 'b', 'c', 'd', 'e', 'f']
 arr.delete('c')
 arr #=> ['a', 'b', 'd', 'e', 'f']
@@ -713,7 +713,7 @@ arr #=> ['a', 'b', 'd', 'e', 'f']
 
 ### delete_at(index)
 
-```rb
+```ruby
 arr = ['this', 'is', 'a', 'CAT MEOWS', 'strange', 'sentence']
 arr.delete_at(3)
 arr #=> ['this', 'is', 'a', 'strange', 'sentence']
@@ -721,7 +721,7 @@ arr #=> ['this', 'is', 'a', 'strange', 'sentence']
 
 ### delete_if{ |item| condition }
 
-```rb
+```ruby
 scores = [50, 20, 33, 70, 83, 89, 48, 100]
 scores.delete_if {|i| i < 50}
 scores #=> [50, 70, 83, 89, 100]
@@ -729,7 +729,7 @@ scores #=> [50, 70, 83, 89, 100]
 
 ### sort
 
-```rb
+```ruby
 arr = ['d', 'a', 'e', 'c', 'b']
 arr.sort!
 arr #=> ['a', 'b', 'c', 'd', 'e']
@@ -741,7 +741,7 @@ arr #=> [1, 10, 20, 30, 40, 50, 100]
 
 use sort { |a, b| comparison } for implementing a comparison between a and b
 
-```rb
+```ruby
 arr = ['d', 'a', 'e', 'c', 'b']
 arr.sort! { |a, b| b <=> a }
 arr #=> ['e', 'd', 'c', 'b', 'a']
@@ -757,7 +757,7 @@ arr #=> ['charlie', 'david', 'ethan', 'alex', 'ben']
 
 ### sum
 
-```rb
+```ruby
 arr = [1, 2, 3, 4, 5]
 arr.sum #=> 15
 
@@ -768,7 +768,7 @@ arr.sum(5) #=> 35
 
 ### each { |item| code block }
 
-```rb
+```ruby
 str = ''
 arr = [1, 2, 3, 4]
 
@@ -778,7 +778,7 @@ str #=> '2468'
 
 ### each_index { |index| code block }
 
-```rb
+```ruby
 arr = ['a', 'b', 'c', 'd', 'e']
 arr.each_index { |x| puts "Index #{x} is #{arr[x]}" }
 
@@ -791,7 +791,7 @@ arr.each_index { |x| puts "Index #{x} is #{arr[x]}" }
 
 ### map { |item| code block }
 
-```rb
+```ruby
 arr = [1, 2, 3, 4, 5]
 new_arr = arr.map { |x| x * 2 }
 new_arr #=> [2, 4, 6, 8, 10]
@@ -807,7 +807,7 @@ other_arr #=> [1, 3, 5, 7, 9]
 
 ### select { |item| condition }
 
-```rb
+```ruby
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 even_arr = arr.select { |x| x.even? }
 even_arr #=> [2, 4, 6, 8, 10]
@@ -819,9 +819,13 @@ arr #=> ['words', 'inside', 'array']
 
 ### reduce { |sum, current| code block }
 
-```rb
+```ruby
 arr = [1, 2, 3, 4, 5]
 sum = arr.reduce { |acc, cur| acc + cur }
+sum #=> 15
+
+arr = [1, 2, 3, 4, 5]
+sum = arr.reduce(:+)
 sum #=> 15
 
 arr = [10, 20, 30]
